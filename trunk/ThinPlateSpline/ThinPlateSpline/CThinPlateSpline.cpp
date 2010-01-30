@@ -81,7 +81,7 @@ void CThinPlateSpline::computeSplineCoeffs(std::vector<Point>& iPIn, std::vector
 	std::vector<Point>* iP = NULL;
 	std::vector<Point>*	iiP = NULL;
 
-	if(tpsInter == BACK_WARP)
+	if(tpsInter == FORWARD_WARP)
 	{
 		iP = &iPIn;
 		iiP = &iiPIn;
@@ -90,7 +90,7 @@ void CThinPlateSpline::computeSplineCoeffs(std::vector<Point>& iPIn, std::vector
 		FLAG_COEFFS_BACK_WARP_SET = true;
 		FLAG_COEFFS_FORWARD_WARP_SET = false;
 	}
-	else if(tpsInter == FORWARD_WARP)
+	else if(tpsInter == BACK_WARP)
 	{
 		iP = &iiPIn;
 		iiP = &iPIn;
@@ -184,7 +184,7 @@ void CThinPlateSpline::computeSplineCoeffs(std::vector<Point>& iPIn, std::vector
 }
 
 
-Point CThinPlateSpline::interpolate_back_(const Point& p)
+Point CThinPlateSpline::interpolate_forward_(const Point& p)
 {
 	Point2f interP;
 	std::vector<Point>* pList = &pSrc;
@@ -220,7 +220,7 @@ Point CThinPlateSpline::interpolate_back_(const Point& p)
 
 	return interP;
 }
-Point CThinPlateSpline::interpolate_forward_(const Point& p)
+Point CThinPlateSpline::interpolate_back_(const Point& p)
 {
 	Point2f interP;
 	std::vector<Point>* pList = &pDst;
