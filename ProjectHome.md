@@ -1,0 +1,1 @@
+This project's aim is to increase the usability of opencv and add new functionality to the image processing library
